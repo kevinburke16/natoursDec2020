@@ -9,7 +9,13 @@ router.post('/login', authController.login);
 router.get('/logout', authController.logout);
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
-
+router.use(function (err, req, res, next) {
+  if (err) {
+    console.log('Error', err);
+  } else {
+    console.log('404')
+  }
+});
 // // router.post('/verifyEmail/:token', authController.verifyEmail);
 
 // //protect all routes after this middleware
