@@ -25,7 +25,7 @@ const createSendToken = (user, statusCode, req, res) => {
     secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   });
 
-  //below code is so the password does not show up in dev mode when user is created
+  //below code is so the password does not show up in dev mode when user is create
   user.password = undefined;
 
   res.status(statusCode).json({
