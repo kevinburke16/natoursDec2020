@@ -14,6 +14,11 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
 const signupForm = document.querySelector('.form--signup');
+//footer elements
+const guideForm = document.querySelector('.form--guide');
+const careersFrom = document.querySelector('.form--careers');
+const aboutForm = document.querySelector('.form--about');
+const contactForm = document.querySelector('.form--contact');
 //Delegation
 if (mapbox) {
   const locations = JSON.parse(mapbox.dataset.locations);
