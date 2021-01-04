@@ -60,6 +60,30 @@ exports.getAccount = (req, res) => {
   });
 };
 
+exports.getContact = (req, res) => {
+  res.status(200).render('contact', {
+    title: 'Contact Us'
+  });
+};
+
+exports.getAbout = (req, res) => {
+  res.status(200).render('about', {
+    title: 'About Us'
+  });
+};
+
+exports.getGuide = (req, res) => {
+  res.status(200).render('guide', {
+    title: 'Becoming a guide'
+  });
+};
+
+exports.getCareers = (req, res) => {
+  res.status(200).render('careers', {
+    title: 'Careers Page'
+  });
+};
+
 exports.getMyTours = catchAsync(async (req, res, next) => {
   //find all bookings
   const bookings = await Booking.find({ user: req.user.id });

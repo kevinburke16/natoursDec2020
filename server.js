@@ -39,3 +39,11 @@ process.on('unhandledRejection', err => {
     process.exit(1);
   });
 });
+
+
+process.on('SIGNTERM', () => {
+  console.log('⏰ Sigterm recieved! Shutting down....')
+  server.close(() => {
+    process.exit(1);
+  });
+})

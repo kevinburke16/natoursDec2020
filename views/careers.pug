@@ -1,0 +1,18 @@
+extends base
+
+block content
+  main.main
+    .careers-form
+      h2.heading-secondary.ma-bt-lg Careers
+      form.form.form--careers
+        .form__group
+          label.form__label(for='name') Name
+          input#name.form__input(type='name', placeholder='first, last name', required, name='name')
+        .form__group
+          label.form__label(for='email') Email address
+          input#email.form__input(type='email', placeholder='you@example.com', required, name='email')
+        .form__group.form__file-upload
+           label(for='resume') Choose resume file
+           input.form__upload(type='file', id='resume', name='resume')          
+        .form__group
+          button.btn.btn--grey Send

@@ -1,0 +1,27 @@
+extends base
+
+block content
+  main.main
+    .guide-form
+      h2.heading-secondary.ma-bt-lg Become a guide
+      form.form.form--guide
+        .form__group
+          label.form__label(for='name') Name
+          input#name.form__input(type='name', placeholder='first, last name', required, name='name')
+        .form__group
+          label.form__label(for='email') Email address
+          input#email.form__input(type='email', placeholder='you@example.com', required, name='email')
+        .form__group
+          label.form__label(for='phone') Phone
+          input#phone.form__input(type='phone', placeholder='your phone number', required, name='phone')  
+        .form__group
+          label.form__label(for='city') City
+          input#city.form__input(type='name', placeholder='your cuty', required, name='city')
+        .form__group
+          label.form__label(for='country') Country
+          input#country.form__input(type='country', placeholder='Country', required, name='country')
+        .form__group
+          label.form__label(for='message') Message          
+          input#message.form__input(type='text', placeholder="Your message", required, message='message')
+        .form__group
+          button.btn.btn--grey Send

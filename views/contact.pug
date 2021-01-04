@@ -1,0 +1,20 @@
+extends base
+
+block content
+  main.main
+    .contact-form
+      h2.heading-secondary.ma-bt-lg Contact Us
+      form.form.form--contact
+        .form__group
+          label.form__label(for='name') Name
+          input#name.form__input(type='name', placeholder='first, last name', required, name='name')
+        .form__group
+          label.form__label(for='email') Email address
+          input#email.form__input(type='email', placeholder='you@example.com', required, name='email')
+        .form__group
+          label.form__label(for='message') Message          
+          input#message.form__input(type='text', placeholder="Your message", required, message='message')
+        .form__group
+          button.btn.btn--grey Send
+
+          //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js')
