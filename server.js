@@ -44,6 +44,7 @@ process.on('unhandledRejection', err => {
 process.on('SIGNTERM', () => {
   console.log('⏰ Sigterm recieved! Shutting down....')
   server.close(() => {
+    console.log('⏰ process terminated')
     process.exit(1);
   });
 })
