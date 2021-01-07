@@ -67,8 +67,8 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again in an hour!'
 });
 app.use('/api', limiter);
-app.use(express.raw())
-app.post('/webhook-checkout', bookingController.webhookCheckout)
+
+app.post('/webhook-checkout',express.raw(), bookingController.webhookCheckout)
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
