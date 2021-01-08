@@ -24,15 +24,17 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     mode: 'payment',
     line_items: [
       {
-        name: `${tour.name} Tour`,
-        description: tour.summary,
-        images: [
-          `${req.protocol}://${req.get('host')}/img/tours/${tour.imageCover}`
-        ],
-        amount: tour.price * 100,
-        currency: 'usd',
-        quantity: 1
-      }
+        quantity: 1,
+        price_data: {
+          currency: 'usd',
+          amount: tour.price * 100,
+          product_data: {
+            name: `${tour.name} Tour`,
+            description: tour.summary,
+            images: [`${req.protocol}://${req.get('host')}/img/tours/${tour.imageCover}`],
+          },
+        },
+      },
     ]
   });
   //create session as response
