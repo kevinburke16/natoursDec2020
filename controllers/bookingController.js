@@ -24,21 +24,19 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     mode: 'payment',
     line_items: [
       {
-        quantity: 1,
-        price_data: {
-          currency: 'usd',
-          unit_amount: tour.price * 100,
-          product_data: {
-            name: `${tour.name} Tour`,
-            description: tour.summary,
-            images: [`${req.protocol}://${req.get('host')}/img/tours/${tour.imageCover}`],
-          },
-        },
-      },
+        name: `${tour.name} Tour`,
+        description: tour.summary,
+        images: [
+          `${req.protocol}://${req.get('host')}/img/tours/${tour.imageCover}`
+        ],
+        amount: tour.price * 100,
+        currency: 'usd',
+        quantity: 1
+      }
     ]
   });
   //create session as response
-  res.status(200).send({
+  res.status(200).json({
     status: 'success',
     session
   });
@@ -57,7 +55,6 @@ const createBookingCheckout = async session => {
   const tour = session.client_reference_id;
   const user = (await User.findOne({email: session.customer_email})).id
   const price = session.unit_amount / 100;
-  console.log(tour, price, user)
   await Booking.create({ tour, user, price });
 
 }
@@ -79,7 +76,7 @@ exports.webhookCheckout = (res, req, next) => {
   if(event.type === 'checkout.session.completed')
     createBookingCheckout(event.data.object);
 
-  res.status(200).send({received: true});
+  res.status(200).json({received: true});
 };
 
 exports.createBooking = factory.createOne(Booking);
